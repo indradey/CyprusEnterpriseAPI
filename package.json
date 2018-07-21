@@ -1,0 +1,21 @@
+{
+  "name": "cyprusenterpriseapi",
+  "version": "1.0.0",
+  "description": "The webapi that saves and sends data for cyprus enterprise ui",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Indranil Dey",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "eslint": "^5.2.0",
+    "exceljs": "^1.5.1",
+    "express": "^4.16.3",
+    "lodash": "^4.17.10",
+    "morgan": "^1.9.0",
+    "uuid": "^3.3.2"
+  }
+}
