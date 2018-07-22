@@ -43,6 +43,7 @@ async function readFromFile() {
 async function writeToFile(userData) {
     var workbook = new EXCEL.Workbook();
     var filelocation = currentDirectory + '\\Queries.xlsx';
+    var queryid = 0;
     await workbook.xlsx.readFile(filelocation)
         .then(function () {
             var worksheet = workbook.getWorksheet(1);
@@ -56,8 +57,11 @@ async function writeToFile(userData) {
             row.getCell(6).value = userData.Query;
             row.getCell(7).value = userData.Response;
             row.commit();
-            return workbook.xlsx.writeFile(filelocation);
-        })
+            workbook.xlsx.writeFile(filelocation);
+            queryid = rowcount;
+            return;
+        });
+        return queryid;
 }
 
 module.exports.writeToFile = writeToFile;

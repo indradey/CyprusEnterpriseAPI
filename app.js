@@ -11,6 +11,7 @@ app.use(bodyParser.urlencoded({
 	extended: true
 }));
 app.use(bodyParser.json());
+app.use(cors());
 app.use(morgan('dev')); // log requests to the console
 var reqschema = require('./RequestType/Request.json');
 // create our router
@@ -29,13 +30,13 @@ router.get('/', function (req, res) {
 	});
 });
 
-router.route('/userDetails')
+router.route('/userDetail')
 
 	// create a bear (accessed at POST http://localhost:3600/userDetails)
 	.post(async function (req, res) {
 		if (req.body !== null || req.body !== '') {
-			await ExcelHelper.writeToFile(req.body);
-			res.json('Done');
+			var queryid = await ExcelHelper.writeToFile(req.body);
+			res.json({'QueryId' : queryid});
 		}
 	})
 
